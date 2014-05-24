@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import net.jzapper.scrubber.gfx.GLES20View;
-import net.jzapper.scrubber.gfx.GLRenderer;
+import net.jzapper.scrubber.gfx.render.GLES20View;
+import net.jzapper.scrubber.gfx.render.GLRenderer;
 
 public class ScrubberActivity extends Activity {
 

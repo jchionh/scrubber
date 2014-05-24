@@ -1,9 +1,11 @@
-package net.jzapper.scrubber.gfx;
+package net.jzapper.scrubber.gfx.render;
 
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
+import net.jzapper.scrubber.gfx.viewpoint.FrustumViewpoint;
+import net.jzapper.scrubber.gfx.viewpoint.Viewpoint;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -16,18 +18,19 @@ import javax.microedition.khronos.opengles.GL10;
 public class GLRenderer  implements GLSurfaceView.Renderer {
 
     protected Context context;
+    protected Viewpoint viewpoint;
 
     public GLRenderer(Context context) {
         this.context = context;
-        /*
-        viewpoint = new FrustrumViewpoint();
+
+        viewpoint = new FrustumViewpoint();
         viewpoint.setPos(0.0f, 0.0f, 2.0f);
         viewpoint.setLookAt(0.0f, 0.0f, 0.0f);
         viewpoint.updateViewMatrix();
 
         // now init our shader programs
-        shaderPrograms = new Tex2dShaderPrograms();
-        */
+        //shaderPrograms = new Tex2dShaderPrograms();
+
     }
 
 
@@ -54,22 +57,16 @@ public class GLRenderer  implements GLSurfaceView.Renderer {
 
         // set the screen dimensions singleton, so we can
         // query it for the values later
-        //ScreenDimensions.getInstance().setDimensions(width, height);
+        ScreenDimensions.getInstance().setDimensions(width, height);
 
         // and we set dimensions for our camera (viewpoint as well)
-        //viewpoint.setDimensions(width, height);
-        //viewpoint.setWorldTranslation(-width / 2.0f, height / 2.0f, 0.0f);
-        //viewpoint.updateProjMatrix();
+        viewpoint.setDimensions(width, height);
+        viewpoint.setWorldTranslation(-width / 2.0f, height / 2.0f, 0.0f);
+        viewpoint.updateProjMatrix();
     }
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        // we have to now load textures if there are pending loads
-        //TextureLibrary.getInstance().loadTextures(gl);
-
-        // now we process our animations
-        //AnimManager.getInstance().run();
-
         // clear buffers!
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 

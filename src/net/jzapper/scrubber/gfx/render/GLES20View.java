@@ -1,4 +1,4 @@
-package net.jzapper.scrubber.gfx;
+package net.jzapper.scrubber.gfx.render;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
