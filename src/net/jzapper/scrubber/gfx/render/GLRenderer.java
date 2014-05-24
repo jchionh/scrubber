@@ -43,13 +43,10 @@ public class GLRenderer  implements GLSurfaceView.Renderer {
 
     public GLRenderer(Context context) {
         this.context = context;
-
         viewpoint = new FrustumViewpoint();
         viewpoint.setPos(0.0f, 0.0f, 2.0f);
         viewpoint.setLookAt(0.0f, 0.0f, 0.0f);
         viewpoint.updateViewMatrix();
-
-
     }
 
 
@@ -60,14 +57,15 @@ public class GLRenderer  implements GLSurfaceView.Renderer {
 
         // enable some GL stuff
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-        GLES20.glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
+        // here we just set the background color of our GL surface
+        GLES20.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         // GLES20.glEnable(GLES20.GL_CULL_FACE);
 
         // on the surface created, let's load up all our default shaders and
         // textures
         loadDefaultShaders(gl);
-
     }
+
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
