@@ -17,7 +17,7 @@ public class ScrubberActivity extends Activity {
     GLES20View view;
     GLRenderer renderer;
 
-    Sprite testSprite = new Sprite();
+    Sprite imageQuad = new Sprite();
     ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
     /**
@@ -40,8 +40,8 @@ public class ScrubberActivity extends Activity {
 
         ((ViewGroup) findViewById(R.id.glsurface_container)).addView(view);
 
-        testSprite.setPos(530.0f, -600.0f, 0.0f);
-        sprites.add(testSprite);
+        imageQuad.setPos(530.0f, -600.0f, 0.0f);
+        sprites.add(imageQuad);
         renderer.setRenderObjectList(sprites);
     }
 }

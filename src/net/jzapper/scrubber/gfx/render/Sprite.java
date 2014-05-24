@@ -13,6 +13,6 @@ public class Sprite extends RenderObject {
     // ctor
     public Sprite() {
         shape = quadShape;
-        quadShape.setDimensions(640, 640);
+        quadShape.setDimensions(640, 480);
     }
 }
