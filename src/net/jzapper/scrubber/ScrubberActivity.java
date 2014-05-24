@@ -7,6 +7,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import net.jzapper.scrubber.gfx.render.GLES20View;
 import net.jzapper.scrubber.gfx.render.GLRenderer;
+import net.jzapper.scrubber.gfx.render.Sprite;
+
+import java.util.ArrayList;
 
 public class ScrubberActivity extends Activity {
 
@@ -14,8 +17,8 @@ public class ScrubberActivity extends Activity {
     GLES20View view;
     GLRenderer renderer;
 
-    //Sprite testSprite = new Sprite();
-    //ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+    Sprite testSprite = new Sprite();
+    ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
     /**
      * Called when the activity is first created.
@@ -34,12 +37,11 @@ public class ScrubberActivity extends Activity {
         view = new GLES20View(this);
         renderer = new GLRenderer(this);
         view.setRenderer(renderer);
-        //setContentView(view);
 
         ((ViewGroup) findViewById(R.id.glsurface_container)).addView(view);
 
-        //testSprite.setPos(250.0f, -250.0f, 0.0f);
-        //sprites.add(testSprite);
-        //renderer.setRenderObjectList(sprites);
+        testSprite.setPos(530.0f, -600.0f, 0.0f);
+        sprites.add(testSprite);
+        renderer.setRenderObjectList(sprites);
     }
 }
